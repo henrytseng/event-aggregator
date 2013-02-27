@@ -13,13 +13,28 @@ EventAggregator is designed to coodinate events and callbacks dispatched in an a
 
 	$ npm install event-aggregator
     
-## Quick Start
-
-
-
 ## Examples
 
+Import the class from the *event-aggregator* module:
 
+	var EventAggregator = require('event-aggregator').EventAggregator;
+
+Then use the class by subscribing to events and callbacks on a specific trigger (e.g. - triggering event below is the event "complete"):
+
+	var aggregator = new EventAggregator();
+	
+	// Resource 1
+	aggregator.waitEvent('complete', resource1, 'ready');
+	aggregator.waitEvent('complete', resource1, 'connect');
+	
+	// Resource 2
+	resource2.createConnection(aggregator.waitCallback('complete'));
+	
+Set up a listener for the triggering event (e.g. - "complete" is dispatched by the aggregator) you've registered for:
+	
+	aggregator.on('complete', function() {
+		// ...
+	});
 
 ## License
 
