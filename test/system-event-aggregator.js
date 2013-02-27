@@ -1,8 +1,6 @@
-var Settings = require('../config/settings');
 var should = require('should');
-var Settings = require('../config/settings');
 var EventEmitter = require('events').EventEmitter;
-var EventAggregator = require(Settings.path.system+'/event/aggregator');
+var EventAggregator = require('event-aggregator').EventAggregator;
 
 describe('EventAggregator', function() {
 	
