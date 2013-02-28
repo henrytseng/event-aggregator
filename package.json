@@ -1,7 +1,7 @@
 {
 	"name": "event-aggregator",
 	"description": "A nodejs module that emits events after a specified set of events and callbacks have been triggered.",
-	"version": "0.1.3",
+	"version": "0.1.4",
 	"homepage": "https://github.com/henrytseng/event-aggregator",
 	"author": "Henry Tseng <henry@heycanvas.com>",
 	"scripts": {
@@ -10,7 +10,7 @@
 	"main": "lib/event/aggregator.js",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/henrytseng"
+		"url": "https://github.com/henrytseng/event-aggregator"
 	},
 	"directories": {
 		"lib": "./lib"
