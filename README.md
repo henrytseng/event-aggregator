@@ -9,7 +9,7 @@ EventAggregator is designed to coodinate events and callbacks dispatched in an a
 
 	$ npm install event-aggregator
     
-## Examples
+## Quick Start
 
 Import the class from the *event-aggregator* module:
 
@@ -25,12 +25,48 @@ Then use the class by subscribing to events and callbacks on a specific trigger 
 	
 	// Resource 2
 	resource2.createConnection(aggregator.waitCallback('complete'));
+	resource2.createConnection(myCallback = aggregator.waitCallback('complete'));
 	
 Set up a listener for the triggering event (e.g. - "complete" is dispatched by the aggregator) you've registered for:
 	
 	aggregator.on('complete', function() {
 		// ...
 	});
+	
+## Triggering Multiple Events
+
+Pass an array to add multiple triggers (multiple dependencies on an event/callback):
+
+	aggregator.waitEvent(['complete', 'ready', 'destroy'], resource1, 'connect');
+
+## Removing Events
+
+Removed an event or callback:
+	
+	// Remove an event
+	aggregator.ignoreEvent('complete', resource1, 'connect');
+	
+	// Remove a callback
+	aggregator.ignoreCallback('complete', myCallback);
+
+## Restarting
+
+Reset a trigger, wait for all callbacks and events to execute again:
+
+	aggregator.resetTrigger('complete');
+
+## Clearing
+
+Clear a trigger, remove all subscribed events and callbacks:
+	
+	aggregator.clearTrigger('complete');
+	
+## Checking the Status
+	
+Check the status:
+
+	aggregator.check('complete');
+	
 
 ## License
 
