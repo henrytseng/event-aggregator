@@ -1,6 +1,8 @@
 EventAggregator
 ================
 
+[![Build Status](https://travis-ci.org/henrytseng/event-aggregator.png?branch=master)](https://travis-ci.org/henrytseng/event-aggregator)
+
 A nodejs module that emits events after a specified set of events and callbacks have been triggered.  
 
 EventAggregator is designed to coodinate events and callbacks dispatched in an asynchonous environment.  
