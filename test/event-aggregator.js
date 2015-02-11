@@ -1,3 +1,5 @@
+'use strict';
+
 var should = require('should');
 var EventEmitter = require('events').EventEmitter;
 var EventAggregator = require('../lib/event/aggregator').EventAggregator;
