@@ -17,20 +17,20 @@ Import the class from the *event-aggregator* module:
 
 	var EventAggregator = require('event-aggregator').EventAggregator;
 
-Then use the class by subscribing to events and callbacks on a specific trigger (e.g. - triggering event below is the event "complete"):
+First, let's create an aggregator
 
 	var aggregator = new EventAggregator();
 	
-	// Resource 1
+Now let's tell the instance to wait for ```resource1``` to emit ```ready```
+
 	aggregator.waitEvent('complete', resource1, 'ready');
-	aggregator.waitEvent('complete', resource1, 'connect');
 	
-	// Resource 2
+And then let's tell the instance to wait for a callback to be dispatched from ```resource2```	
+
 	resource2.createConnection(aggregator.waitCallback('complete'));
-	resource2.createConnection(myCallback = aggregator.waitCallback('complete'));
-	
-Set up a listener for the triggering event (e.g. - "complete" is dispatched by the aggregator) you've registered for:
-	
+
+Once these two events occur ```aggregator``` will dispatch ```compmlete```
+
 	aggregator.on('complete', function() {
 		// ...
 	});
