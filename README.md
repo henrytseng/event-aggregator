@@ -29,7 +29,7 @@ And then let's tell the instance to wait for a callback to be dispatched from ``
 
 	resource2.createConnection(aggregator.waitCallback('complete'));
 
-Once these two events occur ```aggregator``` will dispatch ```compmlete```
+Once these two events occur ```aggregator``` will dispatch ```complete```
 
 	aggregator.on('complete', function() {
 		// ...
